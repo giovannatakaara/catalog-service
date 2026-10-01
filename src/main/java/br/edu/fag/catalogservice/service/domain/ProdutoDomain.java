@@ -1,4 +1,5 @@
 package br.edu.fag.catalogservice.service.domain;
+
 import java.time.LocalDateTime;
 
 public class ProdutoDomain {
@@ -9,6 +10,7 @@ public class ProdutoDomain {
     private String descricao;
     private double preco;
     private LocalDateTime criadoEm;
+    private Boolean active;
 
     public String getNome() {
         return nome;
@@ -23,7 +25,7 @@ public class ProdutoDomain {
     }
 
     public void setDescricao(String descricao) {
-        this.descricao = descricao == null ? null : descricao.trim();;
+        this.descricao = descricao == null ? null : descricao.trim();
     }
 
     public Double getPreco() {
@@ -50,21 +52,24 @@ public class ProdutoDomain {
         this.criadoEm = criadoEm;
     }
 
+    public Boolean getActive() {
+        return active;
+    }
 
-     public void tamanhoNome() {
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
+    public void tamanhoNome() {
         if (nome.length() < 3) {
             throw new RuntimeException("O nome do produto deve ter pelo menos 3 caracteres.");
         }
     }
 
-   public void precoAlto() {
+    public void precoAlto() {
         if (preco >= PRECO_DE_PRODUTO_DE_ALTO_VALOR
                 && (descricao == null || descricao.isBlank())) {
             throw new RuntimeException("Produtos a partir de R$ 1.000,00 devem possuir uma descrição.");
         }
     }
-
-
-
 }
-

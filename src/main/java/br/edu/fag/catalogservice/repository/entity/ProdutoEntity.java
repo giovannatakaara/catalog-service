@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name ="produtos")
+@Table(name = "produtos")
 public class ProdutoEntity {
 
     @Id
@@ -16,6 +16,7 @@ public class ProdutoEntity {
     private String descricao;
     private Double preco;
     private LocalDateTime criadoEm;
+    private Boolean active;
 
     public Integer getId() {
         return id;
@@ -55,5 +56,13 @@ public class ProdutoEntity {
 
     public void setCriadoEm(LocalDateTime criadoEm) {
         this.criadoEm = criadoEm;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }

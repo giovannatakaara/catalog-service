@@ -3,11 +3,13 @@ package br.edu.fag.catalogservice.controller.dto;
 import java.time.LocalDateTime;
 
 public class ProdutoDTO {
+
     private Integer id;
     private String nome;
     private String descricao;
     private Double preco;
     private LocalDateTime criadoEm;
+    private Boolean active;
 
     public String getNome() {
         return nome;
@@ -47,5 +49,13 @@ public class ProdutoDTO {
 
     public void setCriadoEm(LocalDateTime criadoEm) {
         this.criadoEm = criadoEm;
+    }
+
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
     }
 }
